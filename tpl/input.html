@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+
+<title>発着地点入力</title>
+
+<link rel="apple-touch-icon" href="app-icon.png"/>
+<meta property="og:image" content="ogp-image.jpg"/>
+<meta name="viewport" content="width=device-width"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+<script src="https://code4fukui.github.io/egmapjs/egmap.js"></script>
+<link rel="stylesheet" href="https://code4fukui.github.io/egmapjs/egmap.css"/>
+<script src="https://fukuno.jig.jp/fukuno.js"></script>
+<script src="https://code4fukui.github.io/egmapjs/sparql.js"></script>
+<script>"use strict"
+
+window.onload = function() {
+	var map = initMap('mapid')
+	map.setZoom(18)
+	map.panTo([ 35.169851,136.883723 ]) // 名鉄名古屋駅
+	// map.addIcon(35.944571, 136.186228 , "Hana道場", "icon/hanadojo.png", 64)
+
+	var current = map.addIcon(0, 0, "現在地", "icon/walking.png", 64, 64)
+	navigator.geolocation.watchPosition(function(gpos) {
+		const pos = [ gpos.coords.latitude, gpos.coords.longitude ]
+		current.setLatLng(pos)
+		map.panTo(pos)
+	}, function() {
+		alert("現在位置に取得に失敗！")
+	})
+}
+
+</script>
+<style>
+
+body { margin: 0; font-family: sans-serif; text-align: center; }
+h1 { font-size: 3vw; margin: 0; }
+#mapid { height: 80vh; }
+
+</style></head><body>
+
+<h1>名駅（迷駅）マスター</h1>
+<div id="inputmenu">
+    <form action="#">
+        出発：<input type="text" name="point1" list="departure" autocomplete="off" class="point1">
+        <datalist id="departure"><option value="名鉄名古屋駅"></datalist>
+        到着：<input type="text" name="point2" list="arrival" autocomplete="off" class="point2">
+        <datalist id="arrival"><option value="名鉄ニューグランドH"></datalist>
+        <input type="submit" name="search" value="検索">
+    </form>
+</div>
+<a href="/root"><input type="submit" value="next"></a>
+<!--
+<div id="nextback">
+    <input type="button" onclick="history.back()" value="戻る">
+    <input type="button" onclick="location.href='./map2.html'" value="次へ">
+</div>
+-->
+<!-- 
+<div id="inputmenu">
+    <form action="#">
+        出発：<input type="text" name="point1" list="departure" autocomplete="off">
+        <datalist id="departure"><option value="名鉄名古屋駅"></datalist>
+        到着：<input type="text" name="point2" list="arrival" autocomplete="off">
+        <datalist id="arrival"><option value="名鉄ニューグランドH"></datalist>
+        <input type="button" onclick="location.href='./map1.html'" value="検索">
+    </form>
+</div>
+-->
+<div><script type='text/javascript' charset='UTF-8' src='https://map.yahooapis.jp/MapsService/embedmap/V2/?cond=z%3A15%3Blat%3A35.6859904%3Blon%3A139.74241279999998%3Bdatum%3Awgs%3Bs%3A158061776030c62dc47be2425aaca21fde40401a5c%3Blayer%3Apl%3B&amp;zoom=14&amp;lat=35.16982596509614&amp;lon=136.88392841589516&amp;pluginid=place&amp;z=19&amp;mode=map&amp;active=true&amp;layer=place&amp;home=on&amp;hlat=35.16985966100733&amp;hlon=136.88371028265405&amp;pointer=off&amp;pan=off&amp;ei=utf8&amp;v=3&amp;datum=wgs&amp;width=480&amp;height=360&amp;device=pc&amp;isleft='></script></div>
+<!--<div id="mapid"></div> \\>
+<!--
+<img id=qrcode><script>addEventListener("load", () => qrcode.src = "https://chart.apis.google.com/chart?chs=140x140&cht=qr&chl=" + encodeURIComponent(document.location))</script><br>
+
+<a href=https://fukuno.jig.jp/2393>簡単地図アプリ egmapjs チュートリアル</a>
+-->
+</body></html>

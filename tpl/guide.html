@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="content-type" charset="utf-8">
+<link type="text/css" href="/static/css/stylesheet2.css" rel="stylesheet">
+</head>
+
+
+<body> 
+<!-- <img width="600" hight="600"> --> 
+<div class="header">
+	<div class=" header-logo">Meieki Master</div>
+	<div class="header-list">
+	  <ul>
+		<li><a href="/">HOME</a></li>
+		<li><a href="/list">みんなの投稿</a></li>
+		<li>お問い合わせ</li>
+	  </ul>
+	</div>
+  </div>
+
+<a href="javascript:imageChanger(-1)">前へ</a> <img src="static/css/1.png" name="photo"> <a href="javascript:imageChanger(1)">次へ</a>
+
+<script type="text/javascript">
+
+imgFile = new Array("static/css/1.png","static/css/2.png","static/css/3.png","static/css/4.png","static/css/5.png","static/css/6.png",
+                    "static/css/7.png","static/css/8.png","static/css/9.png","static/css/10.png","static/css/11.png",
+                    "static/css/12.png","static/css/13.png","static/css/14.png","static/css/15.png","static/css/16.png","static/css/17.png"); //*1
+
+count = 0; //*2
+
+function imageChanger(num) {
+	//切替番号
+	count += num; //*3
+	//画像の枚数確認
+	if (count >= imgFile.length) count = 0; //*4 枚数を超えるとき
+	if (count < 0) count = imgFile.length - 1; //*5 0番目より小さいとき
+	//画像出力
+	document.photo.src =imgFile[count]; //*6
+}
+
+</script>
+</body>
+</html>

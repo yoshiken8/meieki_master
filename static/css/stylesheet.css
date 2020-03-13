@@ -1,0 +1,58 @@
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,
+form, input, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Avenir Next", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  background-image:url("meieki3.png");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:0pt 67pt;
+}
+
+li {
+  list-style: none;
+}
+
+/* ここからCSSを記述 */
+.header{
+  background-color:#0000cd;
+  color:#fff;
+  height:90px;
+}
+
+.header-logo{
+  font-size:36px;
+  padding:20px 40px;
+  float:left;
+}
+
+.header-list li{
+  float:left;
+  padding:33px 0 33px 20px;
+}
+
+.container{
+  padding:100px 80px;
+}
+
+h1{
+  font-size:120px;
+
+}
+
+span{
+  color:#ff4a4a;
+}
+
+h2{
+  font-size:60px;
+}
+
+li a {
+  color:#ffff;
+}

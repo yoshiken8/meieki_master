@@ -1,0 +1,13 @@
+<p>出発地：<br>
+<select name="from">
+<option value="meitetsu">名鉄名古屋駅(meitetsu nagoya station)</option>
+<option value="jr">JR名古屋駅</option>
+</select></p>
+<p>目的地：<br>
+<select name="to">
+<option value="hotel1">ニューグランドホテル(new grand hotel)</option>
+<option value="hotel2">名鉄グランドホテル(meitetsu grand hotel)</option>
+</select></p>
+<input type="submit" value="案内開始"><input type="reset" value="リセット">
+</form>
+<p>案内開始をクリックすると案内画面に遷移する</p>
