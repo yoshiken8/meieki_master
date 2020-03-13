@@ -1,6 +1,7 @@
 # meieki_master
 
-＜使用方法＞
+＜使用方法（備忘録）＞
+
 １．
 以下コマンドでインストール
 git pull https://github.com/yoshiken8/meieki_master.git
@@ -12,3 +13,4 @@ python server.py
 ３．
 ブラウザで以下のURLにアクセス
 http://localhost:8080
+
